@@ -1,4 +1,4 @@
-# ARC Cluster Tutorial for Python Users
+# ARC Tutorial for Python Users
 
 # 0. Introduction to ARC 
 
