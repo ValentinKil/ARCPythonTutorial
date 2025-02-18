@@ -2,13 +2,13 @@
 
 # 0. Introduction to ARC 
 
-The Advanced Research Computing (ARC) service provides access to High Performance Computing resources, support, and advice to researchers within the University of Oxford. There is a extensive documentation on how to use ARC : 
+The Advanced Research Computing (ARC) service provides access to High Performance Computing resources, support, and advice to researchers within the University of Oxford. There is an extensive documentation on how to use ARC : 
 
 * [ARC User Guide](https://arc-user-guide.readthedocs.io/en/latest/)
 * [ARC Software Guide](https://arc-user-guide.readthedocs.io/en/latest/)
 * [ARC Module List](https://arc-module-list.readthedocs.io/en/latest/)
 
-And some training are regularly organized : [Training](https://www.arc.ox.ac.uk/training). **The aims of this tutorials is to provide a short hand on document that should help Python users to quickly start using ARC.** The documents cited above are the reference documents, with all the details and regular update. The tutorials is written from the perspective of a Mac users, Linux users should be able to follow the same instruction but Windows users should refer to the official documentation.
+And some trainings are regularly organized : [Training](https://www.arc.ox.ac.uk/training). **The aim of this tutorials is to provide a short document that should help Python users to quickly start using ARC.** The documents cited above are the reference documents, with all the details and regular update. The tutorial is written from the perspective of a Mac user, Linux users should be able to follow the same instructions but Windows users should refer to the official documentation.
 
 At the centre of the ARC service are two high performance compute clusters - arc and htc.
 
@@ -17,20 +17,20 @@ At the centre of the ARC service are two high performance compute clusters - arc
 
 htc is also a more heterogeneous system offering different types of resources, such as GPU computing and high memory systems; nodes on arc are uniform. Users get access to both both clusters automatically as part of the process of obtaining an account with ARC, and can use either or both.
 
-For more detailled information on the hardware specifications of these clusters, see the [ARC User guide](https://arc-user-guide.readthedocs.io/en/latest/arc-systems.html.)
+For more detailed information on the hardware specifications of these clusters, see the [ARC User guide](https://arc-user-guide.readthedocs.io/en/latest/arc-systems.html.)
 
-The ARC workflow is describe in the following scheme : 
+The ARC workflow is described in the following scheme : 
 
 ![image info](./workflow.png)
 
-When you log in into ARC your log into a **Login Node**. From there you : 
-* Copy files to/from ARC (see part 3 bellow). This files are store in some directory into the **Shared disk**, only you can access your data but the quantity of storage available is shared).
-* Prepare and submit job (see part 4 bellow) and access result after job(s) completed
+When you log into ARC you log into a **Login Node**. From there you : 
+* Copy files to/from ARC (see [section 3](#3-transferring-files)). These files are stored in some directory on the **Shared disk**, only you can access your data but the amount of storage available is shared.
+* Prepare and submit jobs (see [section 4](#4-running-jobs-on-arc)) and access the results after job(s) are completed
 
-The **Management Nodes** managed the job queue and decide when and where to start a jobs. Note that only the Management Nodes have access to the **Compute nodes** in particular you should never run code in your Login node. 
+The **Management Nodes** manage the job queue and decide when and where to start a job. Note that only the Management Nodes have access to the **Compute nodes**, in particular, you should never run code on your Login node. 
 
 
-Using ARC require a bit of set up the first time you use it. In order to keep this tutorial as short as possible the setup part is presented in another document. Once everything is set up, everything you need to know is explain in the following. 
+Using ARC requires a bit of set up the first time you use it. In order to keep this tutorial as short as possible the setup part is presented in [Appendix](#appendix--how-to-set-up-arc). Once everything is set up, everything you need to know is explained in the following four sections. 
 
 ## 1. Logging in to ARC
 
@@ -46,7 +46,7 @@ To connect to the HTC cluster (single-core to single-node jobs):
 ssh abcd1234@htc-login.arc.ox.ac.uk
 ```
 
-Where `abcd1234` is your actual ARC username, which should be your Oxford SSO. If you have not set up an SSH key, you will be prompted to enter your password.
+Where `abcd1234` is your actual ARC username, which should be your Oxford SSO. If you have not set up an SSH key (see [Appendix](#a3-ssh-key-setup-optional)), you will be prompted to enter your password.
 
 Upon logging in, you will be placed in your ARC `$HOME` directory.
 
@@ -94,7 +94,7 @@ We will frequently need to transfer files to and from ARC. There are several way
 
 A convenient way to transfer code files to ARC is via GitHub. If you already have a GitHub repository with your code, you can clone it into your `$HOME` directory and keep it synchronized.
 
-To use GitHub from the command line, you must set up SSH authentication (see the ARC setup tutorial). Once SSH is set up, clone repositories using:
+To use GitHub from the command line, you must set up SSH authentication (see [Appendix](#b-setting-up-a-github-repository)). Once SSH is set up, clone repositories using:
 
 ```bash
 git clone git@github.com:username/repository.git
@@ -132,9 +132,9 @@ To copy an entire directory (including its contents), use the -`r` (recursive) o
 scp -r abcd1234@arc-login.arc.ox.ac.uk:/path/to/directory local_destination/
 ```
 
-## 3. Running Jobs on ARC
+## 4. Running Jobs on ARC
 
-### 3.1 SLURM
+### 4.1 SLURM
 
 ARC is a shared computational resource among all departments of the University of Oxford. Since this involves many users, a resource manager is needed to properly distribute the available computing power. ARC uses [SLURM](https://slurm.schedmd.com/documentation.html) (Simple Linux Utility for Ressource Management). 
 
@@ -142,7 +142,7 @@ Instead of running code directly in the command line as you would on your person
 
 Several factors influence job priority in the queue, including submission frequency, job duration, and the requested computational resources. Some research groups can purchase credits to gain higher priority in the queue. You can find more information on the [SLURM Reference Guide](https://arc-user-guide.readthedocs.io/en/latest/slurm-reference.html).
 
-### 3.2 An example of submission script 
+### 4.2 An example of submission script 
 
 Here is an example of a submission script that you can copy and paste and modify for your specific needs, lets go through it: 
 
@@ -210,7 +210,7 @@ rm -rf "$SCRATCH_DIR"
 echo "Job completed successfully."
 ```
 
-### 3.3 Breakdown of the submission script : SLURM instruction
+### 4.3 Breakdown of the submission script : SLURM instruction
 
 The script starts with SLURM directives, which specify the computational resources required for the job.
 
@@ -251,7 +251,7 @@ Jobs in the short and medium partitions have higher scheduling priority than tho
 
 These directives provide basic information about the job. The 'mail' directives will trigger an email alert when a job begins, finishes, or fails. 
 
-### 3.3 Breakdown of the submission script : other shell commands
+### 4.4 Breakdown of the submission script : other shell commands
 
 The other shell commands say what to do in job. At the beginning of a job some temporary directory will be created : 
 * `$TMPDIR`: local directory accessible only by a compute node.
@@ -289,7 +289,7 @@ cp -r "$SRC_DIR" "$SCRATCH_DIR"
 
 * **Python environment**
 
-In order to use Python, we will first have to set up a Python environment (see set up tutorial or the [ARC User Guide](https://arc-software-guide.readthedocs.io/en/latest/python/anaconda.html). Once this is done we can proceed as follow to set up the environment : 
+In order to use Python, we will first have to set up a Python environment (see [Appendix](#c-setting-up-a-python-virtual-environment) or the [ARC User Guide](https://arc-software-guide.readthedocs.io/en/latest/python/anaconda.html)). Once this is done we can proceed as follow to set up the environment : 
 
 ```bash
 # Load Anaconda module
@@ -335,7 +335,7 @@ data_dir = args.data_dir
 where we use the library `argparse`
 
 
-### 3.4 Submit  and manage your script
+### 4.5 Submit  and manage your script
 
 Once your submission script is written, you can submit it with:
 
@@ -358,4 +358,133 @@ scancel JOB_ID
 To see the current output:
 ```bash
 cat slurm-JOB_ID.out
+```
+
+-----------------
+
+# Appendix : How to set up ARC
+
+## A. Accessing the ARC Cluster
+
+### A.0 Getting an ARC account
+
+To access and use ARC you need to be attached to a project, any Academic of the University of Oxford can create a project. Once project is created you can apply to get an ARC account [here](https://www.arc.ox.ac.uk/arc-user-registration-page). The project manager will have to validate your application, and once this is done you will receive an email with your username and a separated email with a temporary password. 
+
+### A.1 Logging in to ARC for the first time
+To access the ARC cluster from a Mac we will use ssh. This will only works works if you are on the University of Oxford network. If you are not on the University network, you should use the [University VPN](https://help.it.ox.ac.uk/vpn#tab-4157281). 
+
+To connect to the ARC cluster:
+```bash
+ssh abcd1234@arc-login.arc.ox.ac.uk
+```
+Where `coll1234` is your actual ARC username, which should be your Oxford SSO. When you log in you are on your `$HOME` directory, you're the only one to get access to this repository and you can store up to 20GB into it. The other important directory is the `$DATA` where 5TB are available to be share among all project members.
+
+### A.2 Changing your password
+
+The first thing to do is to change your password, for that type 
+```bash
+passwd
+```
+You will be prompted to enter your current password, followed by the new password. After entering it twice, your password will be updated.
+
+### A.3 SSH Key Setup (Optional)
+To avoid entering your password every time you connect to a remote system via SSH, you can set up SSH key-based authentication. Here’s how you can do it:
+
+1. **Generate an SSH key** (if you don’t have one): 
+First, create an SSH key pair by running on you local computer the following command. You can replace "ASecretSentences" with any comment you like  :
+```bash
+ssh-keygen -t ed25519 -C "ASecretSentences"
+```
+
+This will generate a private and public key pair in the default `~/.ssh/ directory`. You can accept the default file location or specify a different one when prompted.
+
+2. **Copy the public key to ARC:** Once the key pair is generated, copy the public key to your ARC home directory using the following command
+```bash
+ssh-copy-id abcd1234@arc-login.arc.ox.ac.uk
+```
+This command will prompt you to enter your password. Afterward, your public key will be added to the` ~/.ssh/authorized_keys` file on the remote server, and you’ll be able to log in without entering a password in the future.
+
+3. **Test your setup:** After the public key is copied, you can test the setup by connecting to the remote server :
+```bash
+ssh abcd1234@arc-login.arc.ox.ac.uk
+```
+If everything is set up correctly, you should be logged in without needing to enter your password.
+
+## B. Setting up a Github repository
+To clone a GitHub repository to ARC, follow these steps:
+
+1. **Ensure SSH Key Setup:** Make sure you’ve set up SSH key authentication on ARC, as described in the previous section.
+2. **Copy Your Public Key to GitHub:** Add your public SSH key (from `~/.ssh/id_ed25519.pub`) to your GitHub account by going to Settings > SSH and GPG keys and pasting the key there.
+3. **Clone the Repository:** Once your SSH key is linked to GitHub, you can clone the repository using the SSH URL. Run the following command on ARC:
+```bash
+git clone git@github.com:username/repository.git
+```
+The SSH address can be found on your repository's GitHub page under the 'Code' button. This downloads the repository to your ARC workspace. You can then navigate into the repository using `cd repository`.
+
+## C. Setting Up a Python Virtual Environment
+
+Setting up a Python Virtual Environment on ARC its a bit tricker, everything is explain in detail in the guide [Using Python on ARC](https://arc-software-guide.readthedocs.io/en/latest/python/anaconda.html). Here is the summary of the important step. 
+
+### C.1 Interactive Session
+You will first need an interactive session. To request an interactive session, when log in ARC pormpt:
+
+```bash
+srun -p interactive --pty /bin/bash
+```
+
+Now we can start the set up of our virtual environment
+
+### C.2 Virtual Environment
+
+We will use Anaconda, the available Anaconda version can be found by typing 
+```bash
+module spider anaconda
+```
+To load the version of Anaconda you want, in this example we are using the latest version, use one of the following commands:
+
+```bash
+module load Anaconda3
+```
+or one of the specific Anaconda versions shown by module spider.
+
+Once the module is loaded you can use the conda commands to create a virtual environment in your $DATA area. For example to create an environment named `myenv` in `$DATA` we can use the following commands:
+
+```bash
+export CONPREFIX=$DATA/myenv
+conda create --prefix $CONPREFIX
+```
+
+ou can now use (activate) the environment by running one of the following commands:
+```bash
+source activate $CONPREFIX
+```
+
+You can then install package as usual with `pip` by typing 
+
+```bash
+pip install numpy
+```
+
+to install several package at the same time you can use a requirement file : 
+
+```bash
+pip install requirement.txt
+```
+
+That could have been created by running `pip freeze` in your local environment on your personal computer.
+
+### C.3 Remove Conda cache
+
+By default Anaconda will cache all packages installed using `pip install` into a directory in your `$HOME` area named `~/.conda/pkgs` before installing them into your virtual environment. Over time this has the potential to put you over quota in `$HOME`. If you find yourself over quota in `$HOME` check how much space is being used in `~/.conda/pkgs`
+
+```bash
+cd ~/.conda
+du -sh pkgs
+```
+
+If the cache is indeed what put you out of quota you can clean it by using 
+
+```bash
+module load Anaconda3
+conda clean --packages --tarballs
 ```
