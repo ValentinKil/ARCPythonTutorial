@@ -17,7 +17,7 @@ At the centre of the ARC service are two high performance compute clusters - arc
 
 htc is also a more heterogeneous system offering different types of resources, such as GPU computing and high memory systems; nodes on arc are uniform. Users get access to both both clusters automatically as part of the process of obtaining an account with ARC, and can use either or both.
 
-For more detailed information on the hardware specifications of these clusters, see the [ARC User guide](https://arc-user-guide.readthedocs.io/en/latest/arc-systems.html.)
+For more detailed information on the hardware specifications of these clusters, see the [ARC User guide](https://arc-user-guide.readthedocs.io/en/latest/arc-systems.html)
 
 The ARC workflow is described in the following scheme : 
 
