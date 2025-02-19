@@ -32,7 +32,15 @@ The **Management Nodes** manage the job queue and decide when and where to start
 
 Using ARC requires a bit of set up the first time you use it. In order to keep this tutorial as short as possible the setup part is presented in [Appendix](#appendix--how-to-set-up-arc). Once everything is set up, everything you need to know is explained in the following four sections. 
 
+1. [Logging in to ARC](#1-logging-in-to-arc)
+2. [ARC overview](#2-arc-overview)
+3. [Transferring Files](#3-transferring-files)
+4. [Running jobs on ARC](#4-running-jobs-on-arc)
+
+
 ## 1. Logging in to ARC
+
+Before you start, make sure you have access to ARC (see [Appendix](#a-accessing-the-arc-cluster)).
 
 To access the ARC cluster from a Mac we will use ssh. This will only works if you are on the University of Oxford network. If you are not on the University network, you should use the [University VPN](https://help.it.ox.ac.uk/vpn#tab-4157281). 
 
@@ -144,7 +152,7 @@ Several factors influence job priority in the queue, including submission freque
 
 ### 4.2 An example of submission script 
 
-Here is an example of a submission script that you can copy and paste and modify for your specific needs, lets go through it: 
+Here is an example of a submission script that you can copy and paste and modify for your specific needs, you can also download it [here](https://github.com/ValentinKil/ARCPythonTutorial/blob/main/submision-script.sh), lets go through it: 
 
 ```bash
 #!/bin/bash
@@ -368,16 +376,16 @@ cat slurm-JOB_ID.out
 
 ### A.0 Getting an ARC account
 
-To access and use ARC you need to be attached to a project, any Academic of the University of Oxford can create a project. Once project is created you can apply to get an ARC account [here](https://www.arc.ox.ac.uk/arc-user-registration-page). The project manager will have to validate your application, and once this is done you will receive an email with your username and a separated email with a temporary password. 
+To access and use ARC you need to be attached to a project, any academic of the University of Oxford can create a project. Once a project is created you can apply to get an ARC account [here](https://www.arc.ox.ac.uk/arc-user-registration-page). The project manager will have to validate your application, and once this is done you will receive an email with your username and a separated email with a temporary password. 
 
 ### A.1 Logging in to ARC for the first time
-To access the ARC cluster from a Mac we will use ssh. This will only works works if you are on the University of Oxford network. If you are not on the University network, you should use the [University VPN](https://help.it.ox.ac.uk/vpn#tab-4157281). 
+To access the ARC cluster from a Mac we will use ssh. This will only works if you are on the University of Oxford network. If you are not on the University network, you should use the [University VPN](https://help.it.ox.ac.uk/vpn#tab-4157281). 
 
 To connect to the ARC cluster:
 ```bash
 ssh abcd1234@arc-login.arc.ox.ac.uk
 ```
-Where `coll1234` is your actual ARC username, which should be your Oxford SSO. When you log in you are on your `$HOME` directory, you're the only one to get access to this repository and you can store up to 20GB into it. The other important directory is the `$DATA` where 5TB are available to be share among all project members.
+Where `abcd1234` is your actual ARC username, which should be your Oxford SSO. When you log in you are on your `$HOME` directory,You are the only one who has access to this directory and you can store up to 20GB into it. The other important directory is $DATA, where 5TB is available to be shared among all project members (for more detail see [Section 2](#2-arc-overview)).
 
 ### A.2 Changing your password
 
@@ -386,6 +394,8 @@ The first thing to do is to change your password, for that type
 passwd
 ```
 You will be prompted to enter your current password, followed by the new password. After entering it twice, your password will be updated.
+
+Get back to [Section 1](#1-logging-in-to-arc)
 
 ### A.3 SSH Key Setup (Optional)
 To avoid entering your password every time you connect to a remote system via SSH, you can set up SSH key-based authentication. Here’s how you can do it:
@@ -410,6 +420,8 @@ ssh abcd1234@arc-login.arc.ox.ac.uk
 ```
 If everything is set up correctly, you should be logged in without needing to enter your password.
 
+Get back to [Section 1](#1-logging-in-to-arc).
+
 ## B. Setting up a Github repository
 To clone a GitHub repository to ARC, follow these steps:
 
@@ -421,12 +433,14 @@ git clone git@github.com:username/repository.git
 ```
 The SSH address can be found on your repository's GitHub page under the 'Code' button. This downloads the repository to your ARC workspace. You can then navigate into the repository using `cd repository`.
 
+Get back to [Section 3.1](#31-using-github).
+
 ## C. Setting Up a Python Virtual Environment
 
-Setting up a Python Virtual Environment on ARC its a bit tricker, everything is explain in detail in the guide [Using Python on ARC](https://arc-software-guide.readthedocs.io/en/latest/python/anaconda.html). Here is the summary of the important step. 
+Setting up a Python Virtual Environment on ARC is a bit trickier, everything is explained in detail in the guide [Using Python on ARC](https://arc-software-guide.readthedocs.io/en/latest/python/anaconda.html). Here is a summary of the important steps.
 
 ### C.1 Interactive Session
-You will first need an interactive session. To request an interactive session, when log in ARC pormpt:
+You will first need an interactive session. To request an interactive session, when logging into ARC, run:
 
 ```bash
 srun -p interactive --pty /bin/bash
@@ -482,9 +496,11 @@ cd ~/.conda
 du -sh pkgs
 ```
 
-If the cache is indeed what put you out of quota you can clean it by using 
+If the cache is indeed what puts you over quota, you can clean it by using 
 
 ```bash
 module load Anaconda3
 conda clean --packages --tarballs
 ```
+
+Get back to [Section 4.4](#44-breakdown-of-the-submission-script--other-shell-commands).
