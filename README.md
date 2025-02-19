@@ -372,6 +372,8 @@ cat slurm-JOB_ID.out
 
 # Appendix : How to set up ARC
 
+Get back to [Section 0](#0-introduction-to-arc)
+
 ## A. Accessing the ARC Cluster
 
 ### A.0 Getting an ARC account
