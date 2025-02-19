@@ -31,6 +31,10 @@ echo "Current directory: $(pwd)"
 SRC_DIR="$ORIG/path/to/code/src"
 cp -r "$SRC_DIR" "$SCRATCH_DIR"
 
+# in the background, touch files every 6 hours so they’re not deleted by tmpwatch
+while true ; do sleep 6h ; find . -type f -exec touch {} + ; done &
+
+
 # Load Anaconda module
 module load Anaconda3
 

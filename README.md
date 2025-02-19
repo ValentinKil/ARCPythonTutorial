@@ -188,6 +188,9 @@ echo "Current directory: $(pwd)"
 SRC_DIR="$ORIG/path/to/code/src"
 cp -r "$SRC_DIR" "$SCRATCH_DIR"
 
+# in the background, touch files every 6 hours so they’re not deleted by tmpwatch
+while true ; do sleep 6h ; find . -type f -exec touch {} + ; done &
+
 # Load Anaconda module
 module load Anaconda3
 
@@ -294,7 +297,16 @@ Finally, we copy our source code from `$HOME` (or any directory where we start t
 SRC_DIR="$ORIG/path/to/code/src"
 cp -r "$SRC_DIR" "$SCRATCH_DIR"
 ```
+* **Deals with `tmpwatch`**
 
+ARC has an automatic system called `tmpwatch`, which removes files that have not been accessed for a certain period. If you run very long jobs, `tmpwatch` may delete the first files created before your job completes, preventing you from accessing them.
+
+To prevent this, we add the following line:
+
+```bash
+# in the background, touch files every 6 hours so they’re not deleted by tmpwatch
+while true ; do sleep 6h ; find . -type f -exec touch {} + ; done &
+```
 * **Python environment**
 
 In order to use Python, we will first have to set up a Python environment (see [Appendix](#c-setting-up-a-python-virtual-environment) or the [ARC User Guide](https://arc-software-guide.readthedocs.io/en/latest/python/anaconda.html)). Once this is done we can proceed as follow to set up the environment : 
