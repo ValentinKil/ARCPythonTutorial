@@ -81,7 +81,7 @@ ARC operates on Linux. If you are unfamiliar with Linux, don’t worry—you onl
 If you want to know more about Linux, plenty of resources are available online. The ARC teams recommend this [tutorial](https://ryanstutorials.net/linuxtutorial/).
 
 
-### 2.1 `$HOME` directory
+### 2.1 $HOME directory
 
 If you ever need to go back to your `$HOME`directory, juste type 
 ```bash
@@ -93,7 +93,7 @@ You can create folders in your `$HOME` directory to organise your programs and s
 myquota
 ```
 
-### 2.2 `$DATA` directory
+### 2.2 $DATA directory
 
 Another key directory is `$DATA`, which is intended for job outputs and large datasets. To go there type 
 
