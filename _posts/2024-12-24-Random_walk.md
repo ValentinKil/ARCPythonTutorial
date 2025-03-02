@@ -111,3 +111,6 @@ In other words, for $d \leq 2$, the state 0 is recurrent, and the random walk wi
 
 ---
 
+<script>
+MathJax.typeset();
+</script>
