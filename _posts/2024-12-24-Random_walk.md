@@ -83,9 +83,6 @@ Thus, we conclude:
 
 $$\Sigma < \infty \iff d \geq 3.$$  
 
----
-
-
 ## Corollaries
 There is still some work required to bridge the gap between this theorem, which addresses the average number of times the walker returns to zero, and the statement in the introduction, which concerns the probability of returning to zero. The connection can be readily established using a basic lemma of probability: the Borel-Cantelli lemma.
 
