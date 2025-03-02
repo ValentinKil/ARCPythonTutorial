@@ -3,11 +3,14 @@ title: ARC Tutorial for Python Users
 date: 2025-02-21
 layout: post
 permalink: /ARCPythonTutorial/
+excerpt : "Tutorial on how to use Python on the Advanced Research Computing service of the University of Oxford"
 ---
 
 
 
 # ARC Tutorial for Python Users
+
+
 
 # 0. Introduction to ARC 
 

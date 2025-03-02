@@ -7,5 +7,17 @@ layout: default
 
 ## Blog posts
 
-[ARC Tutorial for Python Users](./posts/ARC_Python_tutorial.md)  
-Tutorial on how to use Python on the Advanced Research Computing service of the University of Oxford
+<div class="home">
+  
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <br>
+        {{ post.excerpt }}
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
