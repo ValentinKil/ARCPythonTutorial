@@ -3,10 +3,6 @@ title: Valentin Kilian Blog
 layout: default
 ---
 
-# Valentin Kilian Blog
-
-## Blog posts
-
 <div class="home">
   
   <ul class="posts">
