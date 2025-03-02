@@ -2,6 +2,7 @@
 title: ARC Tutorial for Python Users
 date: 2025-02-21
 layout: post
+permalink: /ARCPythonTutorial/
 ---
 
 
