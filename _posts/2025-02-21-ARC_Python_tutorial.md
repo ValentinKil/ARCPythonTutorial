@@ -30,6 +30,8 @@ The ARC workflow is described in the following scheme :
 
 <img src="../images/workflow.png">
 
+![image info](../images/workflow.png)
+
 When you log into ARC you log into a **Login Node**. From there you : 
 * Copy files to/from ARC (see [section 3](#3-transferring-files)). These files are stored in some directory on the **Shared disk**, only you can access your data but the amount of storage available is shared.
 * Prepare and submit jobs (see [section 4](#4-running-jobs-on-arc)) and access the results after job(s) are completed
