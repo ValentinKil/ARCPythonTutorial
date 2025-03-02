@@ -29,12 +29,14 @@ We first look at the expected number of times the walker returns to zero and we 
 ## Main result
 
 **Theorem:**
-{% raw %}
-Let $d \in \mathbb{N}^{\ast}$, $\left(e_{1}, \ldots, e_{d}\right)$ be the canonical basis of $\mathbb{R}^{d}$, and $\left(X_{n}\right)_{n \in \mathbb{N}} $ be a sequence of independent and identically distributed random variables, uniformly distributed over $\left\{\pm e_{1}, \ldots, \pm e_{d}\right\}$. We define the Markov chain $\left(S_n\right)_{n \geq 0}$ by:
-{% endraw %}
+Let $d \in \mathbb{N}^{\ast}$, $\left(e_{1}, \ldots, e_{d}\right)$ be the canonical basis of $\mathbb{R}^{d}$, and $\left(X_{n}\right)_{n \in \mathbb{N}}$ be a sequence of independent and identically distributed random variables, uniformly distributed over $\left\{\pm e_{1}, \ldots, \pm e_{d}\right\}$. We define the Markov chain $\left(S_n\right)_{n \geq 0}$ by:
+
+
 $$S_{0}=0~~\text{and}~~S_{n}=\sum_{k=1}^{n} X_{k},$$
 
+
 then the expected number of visits to $0$ is finite if and only if $d \geq 3$, in other words:
+
 
 $$\Sigma := \mathbb{E}\left(\sum_{n=0}^{+\infty} \mathbf{1}_{\left(S_{n}=0\right)}\right)<+\infty \Longleftrightarrow d \geq 3.$$
 
