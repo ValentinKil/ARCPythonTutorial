@@ -4,15 +4,12 @@
 
     <div style="float:left; margin-top:10px; margin-right:10px;">
     </div>
+    <a href="https://valentinkil.github.io">
+      <img src="../icon.png" width="50">
+    </a>
 
     <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
     
-      <div class="trigger">
-        {% for page in site.pages %}
-          {% if page.title and page.includelink %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
-        {% endfor %}
-      </div>
-    </nav>
   </div>
 
 </header>
