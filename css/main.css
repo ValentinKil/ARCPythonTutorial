@@ -299,3 +299,11 @@ a:visited { color: #205caa; }
   .site-nav { position: fixed; z-index: 10; top: 14px; right: 8px; }
   /* Modify navigation for smaller screens here */
 }
+
+/* Restrict image size to container's width */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+}
+
