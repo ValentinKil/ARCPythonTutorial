@@ -260,6 +260,13 @@ a:visited { color: #205caa; }
 
 .post pre.terminal code { background-color: #333; }
 
+/* Ensure images inside posts do not overflow */
+.post-content img {
+  max-width: 100%;  /* Prevent images from stretching beyond their container */
+  height: auto;     /* Maintain aspect ratio */
+  border: 1px solid #ddd; /* Optional: Adds a subtle border */
+}
+
 /* AK custom CSS mods */
 .imgright { float: right; margin-left: 10px; }
 .imgcap img {
