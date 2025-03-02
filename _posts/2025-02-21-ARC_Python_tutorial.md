@@ -128,7 +128,7 @@ You will probably only pull from ARC and do all modification of code on your per
 * [GitHub Documentation](https://docs.github.com/en/get-started/using-git/about-git)
 * [Git Reference](https://git-scm.com/docs)
 
-### 3.2 Using `scp`
+### 3.2 Using scp
 While very convenient, GitHub imposes a file size limit (typically 100MB per file), making it unsuitable for transferring large datasets to ARC. To copy big files to ARC, one can use `scp`
 
 ```bash
