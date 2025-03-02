@@ -6,7 +6,7 @@ permalink: /Randomwalk/
 excerpt : "A proof that a drunk man will find his way home, but a drunk bird may get lost forever"
 ---
 
-*The complete article will be published in the next issue of the Invariant, the magazine of the [Oxford student's mathematics society]((https://www.invariants.org.uk)).*
+*The complete article will be published in the next issue of the Invariant, the magazine of the [Oxford student's mathematics society](https://www.invariants.org.uk).*
 
 <img src="../images/drinktardi.jpeg">
 
@@ -37,7 +37,7 @@ then the expected number of visits to $0$ is finite if and only if $d \geq 3$, i
 
 $$\Sigma := \mathbb{E}\left(\sum_{n=0}^{+\infty} \mathbf{1}_{\left(S_{n}=0\right)}\right)<+\infty \Longleftrightarrow d \geq 3.$$
 
-### **Proof**
+#### **Proof**
 
 *The detailed proof is included in the original document published in the Invariant.*
 
@@ -85,14 +85,14 @@ $$\Sigma < \infty \iff d \geq 3.$$
 ## Corollaries
 There is still some work required to bridge the gap between this theorem, which addresses the average number of times the walker returns to zero, and the statement in the introduction, which concerns the probability of returning to zero. The connection can be readily established using a basic lemma of probability: the Borel-Cantelli lemma.
 
-### **Corollary 1:**
+**Corollary 1:**
 If $d \geq 3$, then, almost surely, the random walk goes to infinity, i.e.,
 
 $$\mathbb{P}\left(\left\|S_{n}\right\|_{1} \underset{n \rightarrow+\infty}{\longrightarrow}+\infty\right)=1.$$  
 
 In other words, there is a positive probability that the random walk never returns to 0.
 
-### **Corollary 2:**
+**Corollary 2:**
 If $d \leq 2$, then almost surely the random walk passes through 0 an infinite number of times, that is,
 
 $$\mathbb{P}\left(\sup \left\{n \in \mathbb{N}, S_{n}=0\right\}=+\infty\right)=1.$$  
