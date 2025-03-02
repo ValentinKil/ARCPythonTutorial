@@ -28,7 +28,7 @@ For more detailed information on the hardware specifications of these clusters, 
 
 The ARC workflow is described in the following scheme : 
 
-![image info](../images/workflow.png)
+<img src="../images/workflow.png">
 
 When you log into ARC you log into a **Login Node**. From there you : 
 * Copy files to/from ARC (see [section 3](#3-transferring-files)). These files are stored in some directory on the **Shared disk**, only you can access your data but the amount of storage available is shared.
