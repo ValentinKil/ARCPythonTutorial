@@ -29,7 +29,7 @@ We first look at the expected number of times the walker returns to zero and we 
 ## Main result
 
 **Theorem:**
-Let $d \in \mathbb{N}^{\ast}$, $\left(e_{1}, \ldots, e_{d}\right)$ be the canonical basis of $\mathbb{R}^{d}$, and $\left(X_{n}\right)_{n \in \mathbb{N}}$ be a sequence of independent and identically distributed random variables, uniformly distributed over $\left\lbrace \pm e\_{1}, \ldots, \pm e_{d} \right\rbrace$. We define the Markov chain $\left(S_n\right)_{n \geq 0}$ by:
+Let $d \in \mathbb{N}^{\ast}$, $\left(e_{1}, \ldots, e_{d}\right)$ be the canonical basis of $\mathbb{R}^{d}$, and $\left(X_{n}\right)\_{n \in \mathbb{N}}$ be a sequence of independent and identically distributed random variables, uniformly distributed over $\left\lbrace \pm e\_{1}, \ldots, \pm e_{d} \right\rbrace$. We define the Markov chain $\left(S_n\right)_{n \geq 0}$ by:
 
 
 
