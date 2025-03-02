@@ -7,12 +7,7 @@ excerpt : "Tutorial on how to use Python on the Advanced Research Computing serv
 ---
 
 
-
-# ARC Tutorial for Python Users
-
-
-
-# 0. Introduction to ARC 
+## 0. Introduction to ARC 
 
 The Advanced Research Computing (ARC) service provides access to High Performance Computing resources, support, and advice to researchers within the University of Oxford. There is an extensive documentation on how to use ARC : 
 
